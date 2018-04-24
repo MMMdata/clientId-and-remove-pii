@@ -5,9 +5,6 @@ function() {
     var piiRegex = [{
       name: 'EMAIL',
       regex: /.{4}@.{4}/g
-    },{
-      name: 'PHONE',
-      regex: /\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})/gi
     }];
 
     var globalSendTaskName = '_' + model.get('trackingId') + '_originalSendTask';
