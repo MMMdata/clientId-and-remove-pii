@@ -10,9 +10,12 @@ function() {
     var globalSendTaskName = '_' + model.get('trackingId') + '_originalSendTask';
     
     var originalSendTask = window[globalSendTaskName] = window[globalSendTaskName] || model.get('sendHitTask');
-    var customDimensionIndex = 50;
-    
-    var i, hitpayload, parts, val;
+
+    var customDimensionIndex = 1;
+
+    model.set('dimension' + customDimensionIndex, model.get('clientId'));
+
+    var i, hitPayload, parts, val;
     
     model.set('sendHitTask', function(sendModel) {
     
@@ -32,14 +35,13 @@ function() {
         parts[1] = encodeURIComponent(val);
         hitPayload[i] = parts.join('=');
       }
-      
       sendModel.set('hitPayload', hitPayload.join('&'), true);
       originalSendTask(sendModel);
-      
-      // Rewrite the tracking ID
-      hitPayload = sendModel.get('hitPayload');
-      sendModel.set('hitPayload', hitPayload.join('dimension' + customDimensionIndex, model.get('clientId')), true);
-      originalSendTask(sendModel);
+
+//      sendModel.set('dimension' + customDimensionIndex, model.get('clientId'), true);
+//      originalSendTask(sendModel);
+
+      console.log(hitPayload)
     });
   }
 }
