@@ -12,7 +12,7 @@
       
       var originalSendTask = window[globalSendTaskName] = window[globalSendTaskName] || model.get('sendHitTask');
 
-      var customDimensionIndex = 1;
+      var customDimensionIndex = 50;
 
       model.set('dimension' + customDimensionIndex, model.get('clientId'));
 
