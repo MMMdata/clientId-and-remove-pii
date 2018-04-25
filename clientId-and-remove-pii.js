@@ -37,11 +37,6 @@ function() {
       }
       sendModel.set('hitPayload', hitPayload.join('&'), true);
       originalSendTask(sendModel);
-
-//      sendModel.set('dimension' + customDimensionIndex, model.get('clientId'), true);
-//      originalSendTask(sendModel);
-
-      console.log(hitPayload)
     });
   }
 }
